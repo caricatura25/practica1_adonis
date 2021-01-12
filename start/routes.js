@@ -1,5 +1,7 @@
 'use strict'
 
+const { url } = require('@adonisjs/framework/src/Route/Manager')
+
 /*
 |--------------------------------------------------------------------------
 | Routes
@@ -15,6 +17,11 @@
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
+
+Route.get(url,'UserController.login')
+Route.post(url,'UserController.insertar')
+Route.put('actualizar/:id','UserController.actualizar')
+Route.delete('eliminar/:id','UserController.eliminar')
 
 Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }

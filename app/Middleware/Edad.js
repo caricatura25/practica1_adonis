@@ -10,8 +10,11 @@ class Edad {
    * @param {Function} next
    */
   async handle ({ request }, next) {
-    // call next to advance the request
-    await next()
+    if(request=>edad<18)
+    {
+      return abort(403,'edad no valida');
+    }
+    return next(request);
   }
 }
 
